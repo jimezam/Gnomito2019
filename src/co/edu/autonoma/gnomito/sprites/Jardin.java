@@ -56,13 +56,18 @@ public class Jardin extends Sprite implements Contenedor
             if(type == Hongo.HONGO_MALO)
                 h = new HongoMalo(0, 0);
             else
-                throw new TipoHongoInvalidoException();
+                if(type == Hongo.HONGO_BORRACHO)
+                    h = new HongoBorracho(0, 0);
+                else
+                    throw new TipoHongoInvalidoException();
         
         int x = (int)(Math.random() * ancho - h.getAncho());
         int y = (int)(Math.random() * alto - h.getAlto());                        
         
         h.setX(x);
         h.setY(y);
+        
+        h.setContenedor(this);
         
         return h;        
     }
@@ -78,6 +83,12 @@ public class Jardin extends Sprite implements Contenedor
         if(tecla == KeyEvent.VK_M)
         {
             hongos.add(crearHongo(Hongo.HONGO_MALO));
+            contenedor.refrescar();
+        }
+        
+        if(tecla == KeyEvent.VK_R)
+        {
+            hongos.add(crearHongo(Hongo.HONGO_BORRACHO));
             contenedor.refrescar();
         }
         

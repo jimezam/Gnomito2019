@@ -76,6 +76,9 @@ public class VentanaJuego
         if(evt.getKeyCode() == KeyEvent.VK_M)
             jardin.keyPressed(KeyEvent.VK_M);
         
+        if(evt.getKeyCode() == KeyEvent.VK_R)
+            jardin.keyPressed(KeyEvent.VK_R);
+
         if(evt.getKeyCode() == KeyEvent.VK_UP |
            evt.getKeyCode() == KeyEvent.VK_DOWN |
            evt.getKeyCode() == KeyEvent.VK_LEFT |
