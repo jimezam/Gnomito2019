@@ -95,11 +95,15 @@ public class Jardin extends Sprite implements Contenedor
 
     private void manejarComidaHongos()
     {
-        for(Hongo hongo : hongos)
+        for(int i=0; i<hongos.size(); i++)
         {
+            Hongo hongo = hongos.get(i);
+            
             if(gnomito.hayColision(hongo))
             {
-                System.out.println("Comió");
+                gnomito.comer(hongo);
+                hongos.remove(hongo);
+                i --;
             }
         }
     }

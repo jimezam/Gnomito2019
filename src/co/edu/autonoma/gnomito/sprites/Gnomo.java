@@ -30,6 +30,16 @@ public class Gnomo extends Sprite
         g.fillRect(x, y, ancho, alto);
     }
     
+    public void comer(Hongo hongo)
+    {
+        setX(getX() - hongo.getValorNutricional()/2);
+        setY(getY() - hongo.getValorNutricional()/2);        
+        setAncho(getAncho() + hongo.getValorNutricional()/2);
+        setAlto(getAlto() + hongo.getValorNutricional()/2);
+        
+        getContenedor().refrescar();
+    }
+    
     public boolean mover(int direccion)
     {
         switch(direccion)
